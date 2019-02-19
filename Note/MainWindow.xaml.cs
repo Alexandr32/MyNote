@@ -1,4 +1,5 @@
 ﻿using System.Collections.Specialized;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -191,6 +192,13 @@ namespace Note
                     e.Cancel = true;
                 }
             }
+        }
+
+        // Сохраняет текущую запись в .txt
+        private void ButtonSaveTxt_Click(object sender, RoutedEventArgs e)
+        {
+            Notes note = (Notes)listBoxNote.SelectedValue;
+            database.SaveTxt(note);
         }
     }
 }

@@ -20,8 +20,9 @@
                     </LinearGradientBrush>
                 </Button.Background>
                 <Button.ContextMenu>
-                    <ContextMenu>
-                        <MenuItem x:Name="save" Header="Сохранить" Click="Save_Click"></MenuItem>
+                    <ContextMenu FontSize="14">
+                        <MenuItem x:Name="save" Header="Сохранить все записи" Click="Save_Click"></MenuItem>
+                        <MenuItem x:Name="saveTxt" Header="Выгрузить текущую запись в .txt" Click="ButtonSaveTxt_Click"></MenuItem>
                         <MenuItem x:Name="close" Header="Выйти" Click="CloseApp_Clic"></MenuItem>
                     </ContextMenu>
                 </Button.ContextMenu>

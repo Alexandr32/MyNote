@@ -57,6 +57,11 @@ namespace Note
             DateTime = DateTime.Now;
         }
 
+        public override string ToString()
+        {
+            return nameNote + "\r\n" + textNote;
+        }
+
         // Привязка по свойсву текста
         public Binding BindingNote
         {
@@ -152,7 +157,17 @@ namespace Note
                 fStream.Close();
             }
         }
-        
+
+        // Сохраняет файл в тхт
+        public void SaveTxt(Notes note)
+        {
+            if(note != null)
+            {
+                StreamWriter sw = new StreamWriter(new FileStream(note.NameNote + ".txt", FileMode.Create, FileAccess.Write));
+                sw.Write(note.ToString());
+                sw.Close();
+            }
+        }
 
         // Уведомление о изменении коллекции
         public void Ghanged(NotifyCollectionChangedEventHandler delegateGhanged, PropertyChangedEventHandler _propertyChangedEventHandler)
