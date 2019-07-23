@@ -9,17 +9,24 @@ namespace Note
 {
     public class Notes : INotifyPropertyChanged
     {
-        // Название записки
+        /// <summary>
+        /// Название записки
+        /// </summary>
         string nameNote;
-        // Текст записи
+        /// <summary>
+        /// Текст записи
+        /// </summary>
         string textNote;
-
-        // Дата создания записи
+        /// <summary>
+        /// Дата создания записи
+        /// </summary>
         public DateTime DateTime { get; set; }
    
         public event PropertyChangedEventHandler PropertyChanged;
 
-        // Свойство названия записи
+        /// <summary>
+        /// названия записи
+        /// </summary>
         public string NameNote
         {
             get => nameNote;
@@ -30,7 +37,9 @@ namespace Note
             }
         }
                
-        // Свойство тела записи
+        /// <summary>
+        /// Текст тела записи
+        /// </summary>
         public string TextNote
         {
             get => textNote;

@@ -48,7 +48,7 @@
                     </ContextMenu>
                 </Button.ContextMenu>
             </Button>
-            <Label x:Name="labelName" Content="{Binding ElementName=textBoxName,Path=Text}" HorizontalAlignment="Left" Margin="10,2,0,0" VerticalAlignment="Top" Height="44" Width="550" FontSize="24" Foreground="White"/>
+            <Label x:Name="labelName" Content="{Binding ElementName=textBoxName,Path=Text}" HorizontalAlignment="Left" Margin="10,2,0,0" VerticalAlignment="Top" Height="44" Width="899" FontSize="24" Foreground="White"/>
         </Grid>
         <Grid Margin="10,55,0,6" >
             <Grid.ColumnDefinitions>
@@ -96,7 +96,7 @@
         <Grid 
             x:Name="head_status" 
             Height="4" 
-            Background="{Binding Path=IsEdited, Converter={StaticResource ConverterColor}}"
+            Background="{Binding Path=IsChange, Converter={StaticResource ConverterColor}}"
             VerticalAlignment="Top" 
             Margin="0,50,0,0" >
         </Grid>

@@ -10,6 +10,9 @@ namespace Note
     // Класс для создания команд
     class DelegateCommand : ICommand
     {
+        /// <summary>
+        /// Делагат который сработает при нажатии на элемент
+        /// </summary>
         readonly Action<object> execute;
         readonly Func<object, bool> canExecute;
 
@@ -22,8 +25,11 @@ namespace Note
         // Должно возвращать логическое выражение используется для 
         // включения или выключения элементов UI
         public bool CanExecute(object parameter) => canExecute != null ? canExecute(parameter) : true;
-        
-        // метод выполнения события
+
+        /// <summary>
+        /// Выполнения события
+        /// </summary>
+        /// <param name="parameter"></param>
         public void Execute(object parameter)
         {
             execute?.Invoke(parameter);

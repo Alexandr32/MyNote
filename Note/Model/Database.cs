@@ -9,17 +9,23 @@ using System.Windows.Data;
 using System.Xml.Serialization;
 
 namespace Note.Model
-{
-    // Класс для вопроса    
+{    
     [Serializable]  
     class Database
     {
-        // Названеи файлов
+        /// <summary>
+        /// Расположение файла с записями
+        /// </summary>
         string fileName;
 
-        event Action Action;
+        /// <summary>
+        /// Делегат вызываемый при изменении данных
+        /// </summary>
+        Action Action;
 
-        // Список записей
+        /// <summary>
+        /// Список записей
+        /// </summary>
         ObservableCollection<Notes> listNotes;
 
         /// <summary>
@@ -35,14 +41,15 @@ namespace Note.Model
             get { return listNotes; }
         }
 
-        // Св-во имени
+        /// <summary>
+        /// Расположение файла с записями
+        /// </summary>
         public string FileName
         {
             set { fileName = value; }
             get { return fileName; }
         }
         
-        // Конструктор
         public Database(string _fileName, PropertyChangedEventHandler _propertyChangedEventHandler, Action _action)
         {
             propertyChangedEventHandler = _propertyChangedEventHandler;

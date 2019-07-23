@@ -12,7 +12,9 @@ namespace Note.ViewModel
         Database database;
 
         ObservableCollection<Notes> notes;
-        // Коллекция записей
+        /// <summary>
+        /// Коллекция записей
+        /// </summary>
         public ObservableCollection<Notes> Notes {
             get => notes;
             private set
@@ -22,23 +24,40 @@ namespace Note.ViewModel
             }
         }
 
-        // Добавление новой записи
+        /// <summary>
+        /// Добавление новой записи
+        /// </summary>
         public ICommand AddCommand { get; }
-        // Удаление записи
+        /// <summary>
+        /// Удаление записи
+        /// </summary>
         public ICommand RemoveCommand { get; }
-        // Сохранение записи
+        /// <summary>
+        /// Сохранение записи
+        /// </summary>
         public ICommand SaveCommand { get; }
-        // Сортировка записей по имент
+        /// <summary>
+        /// Сортировка записей по имент
+        /// </summary>
         public ICommand SortingNameCommand { get; }
-        // Сортировка по времени создания
+        /// <summary>
+        /// Сортировка по времени создания
+        /// </summary>
         public ICommand SortingDateTimeCommand { get; }
-        // Закрыть приложение
+        /// <summary>
+        /// Закрыть приложение
+        /// </summary>
         public ICommand CloseCommand { get; }
-        // Выгрузить текущую запись в .txt
+        /// <summary>
+        /// Выгрузка текущую запись в .txt
+        /// </summary>
         public ICommand UploadTxtCommand { get; }
 
-        // Выбранная запись
+        
         public Notes selectedNote;
+        /// <summary>
+        /// Выбранная запись
+        /// </summary>
         public Notes SelectedNote
         {
             get => selectedNote;
@@ -49,22 +68,29 @@ namespace Note.ViewModel
             }
         }
 
-        // Свойство для отображения изменения
-        bool isEdited = false;
-        public bool IsEdited
+        
+        bool isChange = false;
+        /// <summary>
+        /// Свойство для отображения изменения
+        /// </summary>
+        public bool IsChange
         {
-            get => isEdited;
+            get => isChange;
             set
             {
-                isEdited = value;
-                OnPropertyChanged("IsEdited");
+                isChange = value;
+                OnPropertyChanged("IsChange");
             }
         }
-        
-        // Метод для уведомления что были внемесены изменеия
+
+        /// <summary>
+        /// Уведомления что были внемесены изменеия
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void SetIsEdited(object sender, PropertyChangedEventArgs e)
         {
-            IsEdited = true;
+            IsChange = true;
         }
 
         public MainWindowViewModel()
@@ -91,6 +117,7 @@ namespace Note.ViewModel
             // Выгрузка данных из txt
             UploadTxtCommand = new DelegateCommand(delegate { database.SaveTxt(selectedNote); }, delegate { return (selectedNote as Notes) != null; });
         }
+
         /// <summary>
         /// Метод закрытия приложения
         /// </summary>
@@ -98,7 +125,7 @@ namespace Note.ViewModel
         private void Close(object obj)
         {
             //если были изменения ввыводим окно с вопросом о сохранении
-            if(isEdited)
+            if(isChange)
             {
                 // Диалоговое окно с вопросом о сохранении
                 MessageBoxResult result = MessageBox.Show("Сохранить данные?", "Есть несохраненные данные", MessageBoxButton.YesNoCancel);
@@ -145,7 +172,6 @@ namespace Note.ViewModel
 
         }
 
-
         /// <summary>
         ///  Сохранение записей
         /// </summary>
@@ -154,7 +180,7 @@ namespace Note.ViewModel
         {
             database.Save();
             // Данные сохранены, следовательно переключам флаг изменений в исходное положение
-            IsEdited = false;
+            IsChange = false;
         }
 
         /// <summary>
@@ -182,7 +208,7 @@ namespace Note.ViewModel
             if (result == MessageBoxResult.Yes)
             {
                 database.Remove(note);
-                IsEdited = true;
+                IsChange = true;
             }
         }
 
@@ -201,17 +227,23 @@ namespace Note.ViewModel
             database.Add(note);
 
             // Уведомляем что есть не сохраненные записи
-            IsEdited = true;
+            IsChange = true;
         }
 
-        // Обновление колекции
+        /// <summary>
+        /// Обновление колекции
+        /// </summary>
         void UpdateListNotes()
         {
             Notes = database.ListNotes;
         }
 
-        // Метод для создания свойств привязки данных
+        
         public event PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// Создание свойств привязки данных
+        /// </summary>
+        /// <param name="propertyName"></param>
         void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

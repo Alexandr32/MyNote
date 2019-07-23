@@ -10,29 +10,43 @@ using System.Windows.Data;
 
 namespace Note
 {
-    // Класс для вызова контекстного меню правой клавишей мышки
+    /// <summary>
+    /// Класс для вызова контекстного меню правой клавишей мышки
+    /// </summary>
     class ContextMenuLeftClickBehavior
     {
-        // Запрос состояние клика левой клавиши
+        /// <summary>
+        /// Запрос состояние клика левой клавиши
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public static bool GetIsLeftClickEnabled(DependencyObject obj)
         {
             return (bool)obj.GetValue(IsLeftClickEnabledProperty);
         }
-        
-        // Установливает состояние левого клика
+
+        /// <summary>
+        /// Установливает состояние левого клика
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="value"></param>
         public static void SetIsLeftClickEnabled(DependencyObject obj, bool value)
         {
             obj.SetValue(IsLeftClickEnabledProperty, value);
         }
 
-        // Создается свойство
+        // Свойство нажатия клавиши
         public static readonly DependencyProperty IsLeftClickEnabledProperty = DependencyProperty.RegisterAttached(
             "IsLeftClickEnabled",
             typeof(bool),
             typeof(ContextMenuLeftClickBehavior),
             new UIPropertyMetadata(false, OnIsLeftClickEnabledChanged));
 
-        // Обработчик нажатия
+        /// <summary>
+        /// Обработчик нажатия
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private static void OnIsLeftClickEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             // Проверка является ли нажатый элемент кнопкой

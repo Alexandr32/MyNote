@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<ArrayOfNotes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Notes>
+    <DateTime>2019-03-25T11:57:40.4913978+06:00</DateTime>
+    <NameNote>dssdcsdcs</NameNote>
+    <TextNote>Текст записи</TextNote>
+  </Notes>
+</ArrayOfNotes>
