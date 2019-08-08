@@ -53,7 +53,6 @@ namespace Note.ViewModel
         /// </summary>
         public ICommand UploadTxtCommand { get; }
 
-        
         public Notes selectedNote;
         /// <summary>
         /// Выбранная запись
@@ -68,7 +67,6 @@ namespace Note.ViewModel
             }
         }
 
-        
         bool isChange = false;
         /// <summary>
         /// Свойство для отображения изменения
@@ -101,7 +99,6 @@ namespace Note.ViewModel
             
             // Создаем коллекцию с записями из файла
             Notes = database.ListNotes;
-
             // Добавление 
             AddCommand = new DelegateCommand(AddNewNote);
             // Удаление 
@@ -140,10 +137,6 @@ namespace Note.ViewModel
                 {
                     // Выход из программы
                     System.Environment.Exit(0);
-                }
-                else if (result == MessageBoxResult.Cancel)
-                {
-                    
                 }
             }
             else
@@ -237,7 +230,6 @@ namespace Note.ViewModel
         {
             Notes = database.ListNotes;
         }
-
         
         public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>

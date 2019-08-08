@@ -7,7 +7,9 @@ using System.Windows.Input;
 
 namespace Note
 {
-    // Класс для создания команд
+    /// <summary>
+    /// Класс для создания команд
+    /// </summary>
     class DelegateCommand : ICommand
     {
         /// <summary>

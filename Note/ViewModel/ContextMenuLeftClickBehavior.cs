@@ -35,7 +35,9 @@ namespace Note
             obj.SetValue(IsLeftClickEnabledProperty, value);
         }
 
-        // Свойство нажатия клавиши
+        /// <summary>
+        /// Свойство нажатия клавиши
+        /// </summary>
         public static readonly DependencyProperty IsLeftClickEnabledProperty = DependencyProperty.RegisterAttached(
             "IsLeftClickEnabled",
             typeof(bool),

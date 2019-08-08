@@ -14,7 +14,14 @@ namespace Note
     /// </summary>
     class ConverterColor : IValueConverter
     {
-        // Данные из иcточника привязки
+        /// <summary>
+        /// Данные из иcточника привязки
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="targetType"></param>
+        /// <param name="parameter"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             bool isEdited = (bool)value;
@@ -28,7 +35,14 @@ namespace Note
             }
         }
 
-        // Данные из целевого исочника привязки
+        /// <summary>
+        /// Данные из целевого исочника привязки
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="targetType"></param>
+        /// <param name="parameter"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             return value;
